@@ -1,5 +1,5 @@
 import './App.css';
-import {From} from './components/Form';
+import {Form} from './components/Form';
 import {useState} from "react";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
   }
   return (
     <div className="App">
-      <From setForm={setForm} form={form} handleSubmit={handleSubmit} />
+      <Form setForm={setForm} form={form} handleSubmit={handleSubmit} />
     </div>
   );
 }
