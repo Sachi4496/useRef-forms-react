@@ -57,11 +57,11 @@ export const Form = ({ getData }) => {
             </div>
             <div>
                 <label>Salary :</label>
-                <input type="number" name="salary" onChange={handleChange} placeholder="Enter your name" />
+                <input type="number" name="salary" onChange={handleChange} placeholder="Enter your salary" />
             </div>
             <div>
                 <label>Marital State :</label>
-                <input type="text" name="maritalstate" onChange={handleChange} placeholder="Enter your name" />
+                <input type="text" name="maritalstate" onChange={handleChange} placeholder="Enter your Marital State" />
             </div>
             <div>
                 <label>profile photo :</label>
