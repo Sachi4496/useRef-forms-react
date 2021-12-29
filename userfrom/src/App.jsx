@@ -1,26 +1,19 @@
 import './App.css';
 import {Form} from './components/Form';
+import {Table} from "./components/Table";
 import {useState} from "react";
 
 function App() {
-  const data = {
-    name:"",
-    age:"",
-    address:"",
-    department:"",
-    salary:"",
-    maritalstate:"",
-    selectedFile:"",
-  }
 
-  const [form, setForm] = useState(data);
+  const [list, userData] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const getData = (e) => {
+    userData(e);
   }
   return (
     <div className="App">
-      <Form setForm={setForm} form={form} handleSubmit={handleSubmit} />
+      <Form getData={getData}/>
+      <Table list={list}/>
     </div>
   );
 }
