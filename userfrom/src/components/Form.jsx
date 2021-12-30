@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 export const Form = ({ getData }) => {
 
-    const ref = useRef("");
+    const ref = useRef(null);
 
     const [form, setForm] = useState({
         name: "",
@@ -10,21 +10,22 @@ export const Form = ({ getData }) => {
         department: "",
         salary: "",
         maritalstate: "",
-        selectedFile: "",
+        profile: "",
     }
     )
 
     const handleChange = (e) => {
-        const {value,name}=e.target;
+        let file = ref.current.files[0]
+        console.log("pics",file);
+        let  {name , value, checked, type} = e.target
+        value = type === "checkbox" ? checked : value;
         setForm({
             ...form,
-            [name]:e.target.type==="checkbox" ? e.target.checked : value
+            [name]: value,
+            profile:file,
         })
     }
     
-    const fileInput = (e) => {
-        setForm({ ...form, selectedFile: ref.current.files[0] })
-    }
     const handleSubmit = (e) => {
         e.preventDefault();
         getData(form);
@@ -65,7 +66,7 @@ export const Form = ({ getData }) => {
             </div>
             <div>
                 <label>profile photo :</label>
-                <input type="file" ref={ref} name="selectedFile" onChange={fileInput} />
+                <input type="file" ref={ref} name="profile" onChange={handleChange} />
             </div>
             <input type="submit" />
         </form>

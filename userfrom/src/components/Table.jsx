@@ -1,6 +1,14 @@
-export const Table = ({list})=>{
-    console.log("getting data in table",list);
+export const Table = ({
+    name,
+    age,
+    address,
+    department,
+    salary,
+    marital,
+    Profile
+  }) => {
     return(
-        <div></div>
+        <div>{Profile}{name}</div>
+        
     )
 }
