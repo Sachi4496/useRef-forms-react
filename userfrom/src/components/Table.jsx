@@ -1,14 +1,17 @@
-export const Table = ({
+export const Table = ({list}) => {
+  let {
     name,
     age,
     address,
     department,
     salary,
     marital,
-    Profile
-  }) => {
+    file
+   } = list
     return(
-        <div>{Profile}{name}</div>
+        <div>{file}{name}
+        <img src={file} alt="gjhf" />
+        </div>
         
     )
 }

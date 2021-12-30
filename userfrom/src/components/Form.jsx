@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import {Table} from "./Table";
 export const Form = ({ getData }) => {
 
     const ref = useRef(null);
@@ -13,25 +14,32 @@ export const Form = ({ getData }) => {
         profile: "",
     }
     )
+    const [data, setData] = useState([]);
 
     const handleChange = (e) => {
-        let file = ref.current.files[0]
+        // let file = URL.createObjectURL(ref.current.files[0]);
+        let file;
+        if(ref.current.files.length !== 0){
+            // this.setState({image: URL.createObjectURL(e.target.files[0])})
+            file = URL.createObjectURL(ref.current.files[0]);
+          }
         console.log("pics",file);
         let  {name , value, checked, type} = e.target
         value = type === "checkbox" ? checked : value;
         setForm({
             ...form,
             [name]: value,
-            profile:file,
+            file:file,
         })
     }
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        getData(form);
+        setData([...data,form]);
         console.log("submit",form);
     }
     return (
+        <>
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Name :</label>
@@ -66,9 +74,13 @@ export const Form = ({ getData }) => {
             </div>
             <div>
                 <label>profile photo :</label>
-                <input type="file" ref={ref} name="profile" onChange={handleChange} />
+                <input type="file" ref={ref} name="profile" onChange={handleChange} accept="image/png image/jpg" />
             </div>
             <input type="submit" />
         </form>
+        {data.map((e,i)=>(
+                <Table key={i} list={e} />
+            ))}
+        </>
     )
 }
