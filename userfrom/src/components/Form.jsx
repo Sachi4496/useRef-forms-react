@@ -20,7 +20,7 @@ export const Form = () => {
   }, [page]);
 
   const getData = () => {
-    fetch(`http://localhost:3001/users?_page=${page}&_limit=1`)
+    fetch(`http://localhost:3001/users?_page=${page}&_limit=4`)
       .then((d) => d.json())
       .then((res) => setData(res));
   };

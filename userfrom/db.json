@@ -1,3 +1,26 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "Sachidanand Pradhan",
+      "age": "20",
+      "address": "pune",
+      "department": "devlopment",
+      "salary": "50000",
+      "single": true,
+      "married": "",
+      "file": "blob:http://localhost:3000/82dfd056-e5c7-4717-aad4-08287e7fcb40",
+      "id": 1
+    },
+    {
+      "name": "Sachidanand Pradhan",
+      "age": "10",
+      "address": "Bihar",
+      "department": "devops",
+      "salary": "520",
+      "single": true,
+      "married": "",
+      "file": "blob:http://localhost:3000/cbcc02b7-3ca8-49cc-bbdb-c310341c74ec",
+      "id": 2
+    }
+  ]
 }

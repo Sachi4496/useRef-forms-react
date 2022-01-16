@@ -8,7 +8,7 @@ export const TableItem = ({ name, age, address, department, salary, single, marr
         <td>{department}</td>
         <td>{salary}</td>
         <td>{single ? "Single" : "Married"}</td>
-        <td><img src={file} style={{ width: "100px", height: '100px' }} alt="profile" /></td>
+        <td><img src={file} style={{ width: "100px", height: '100px', borderRadius: "10px" }} alt="profile" /></td>
       </tr>
     </>
   );

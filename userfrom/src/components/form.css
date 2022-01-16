@@ -1,13 +1,14 @@
 .main{
     width: 98%;
     margin: 40px auto; 
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     display: flex;
 }
 .formDiv{
     width: 40%;
     border: 2px solid red;
     margin-left: 20px;
+    margin-right: 10px;
 }
 .formDiv div{
     margin-top: 10px;

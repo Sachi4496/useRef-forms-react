@@ -4,13 +4,13 @@ export const Table = ({ list }) => {
     <div>
       <table>
         <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Address</th>
-          <th>Department</th>
-          <th>Salary</th>
-          <th>Marital Status</th>
-          <th>Profile Photo</th>
+          <th><span style={{ marginLeft: "10px" }}>Name</span></th>
+          <th><span style={{ marginLeft: "20px" }}>Age</span> </th>
+          <th><span style={{ marginLeft: "20px" }}>Address</span> </th>
+          <th><span style={{ marginLeft: "20px" }}>Department</span> </th>
+          <th><span style={{ marginLeft: "20px" }}>Salary</span> </th>
+          <th><span style={{ marginLeft: "20px" }}>Marital Status</span> </th>
+          <th><span style={{ marginLeft: "20px" }}>Profile Pic</span> </th>
         </tr>
         {list.map((e, i) => (
           <TableItem {...e} key={i} />
