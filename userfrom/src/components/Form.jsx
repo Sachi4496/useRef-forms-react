@@ -1,8 +1,9 @@
-import { useState, useRef } from "react";
-import { Table } from "./Table";
-export const Form = ({ getData }) => {
+import { useRef, useState, useEffect } from "react";
+import { Table } from "./Table"
+import "./form.css";
+export const Form = () => {
   const ref = useRef(null);
-
+  const [data, setData] = useState([]);
   const [form, setForm] = useState({
     name: "",
     age: "",
@@ -11,18 +12,23 @@ export const Form = ({ getData }) => {
     salary: "",
     single: "",
     married: "",
-    profile: "",
+    file: "",
   });
-  const [data, setData] = useState([]);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    fetch(`http://localhost:3001/users`)
+      .then((d) => d.json())
+      .then((res) => setData(res));
+  };
 
   const handleChange = (e) => {
-    // let file = URL.createObjectURL(ref.current.files[0]);
     let file;
     if (ref.current.files.length !== 0) {
-      // this.setState({image: URL.createObjectURL(e.target.files[0])})
       file = URL.createObjectURL(ref.current.files[0]);
     }
-    console.log("pics", file);
     let { name, value, checked, type } = e.target;
     value = type === "checkbox" ? checked : value;
     setForm({
@@ -31,83 +37,119 @@ export const Form = ({ getData }) => {
       file: file,
     });
   };
-
+  // console.log("form", form);
   const handleSubmit = (e) => {
     e.preventDefault();
     setData([...data, form]);
-    console.log("submit", form);
+    const payload = {
+      name: form.name,
+      age: form.age,
+      address: form.address,
+      department: form.department,
+      salary: form.salary,
+      single: form.single,
+      married: form.married,
+      file: form.file,
+    };
+    fetch("http://localhost:3001/users", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(() => {
+      getData();
+    });
+  };
+  const salarySort = (val) => {
+    fetch(`http://localhost:3001/users?_sort=Salary&_order=${val}`)
+      .then((e) => e.json())
+      .then((e) => {
+        getData(e)
+        console.log(e);
+      });
+    console.log("inside sort", data)
   };
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name :</label>
-          <input
-            type="text"
-            name="name"
-            onChange={handleChange}
-            placeholder="Enter your name"
-          />
+      <div className="main">
+        <div className="formDiv">
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label>Name :</label>
+              <input style={{ marginLeft: "50px" }}
+                type="text"
+                name="name"
+                onChange={handleChange}
+                placeholder="Enter your name"
+              />
+            </div>
+            <div>
+              <label>Age :</label>
+              <input style={{ marginLeft: "62px" }}
+                type="number"
+                name="age"
+                onChange={handleChange}
+                placeholder="Enter your age"
+              />
+            </div>
+            <div>
+              <label>Address :</label>
+              <input style={{ marginLeft: "36px" }}
+                type="text"
+                name="address"
+                onChange={handleChange}
+                placeholder="Enter your address"
+              />
+            </div>
+            <div>
+              <label>Department :</label>
+              <select name="department" onChange={handleChange} style={{ marginLeft: "10px" }}>
+                <option value="">Choose an option</option>
+                <option value="devlopment">Devlopment</option>
+                <option value="testing">Testing</option>
+                <option value="devops">DevOps</option>
+                <option value="ai">Artificial intelligence</option>
+                <option value="hr">HR</option>
+              </select>
+            </div>
+            <div>
+              <label>Salary :</label>
+              <input style={{ marginLeft: "52px" }}
+                type="number"
+                name="salary"
+                onChange={handleChange}
+                placeholder="Enter your salary"
+              />
+            </div>
+            <div>
+              <label>Marital State :</label>
+              <input onChange={handleChange} type="checkbox" name="single" style={{ marginLeft: "10px" }}></input>
+              <label>Single</label>
+              <input onChange={handleChange} type="checkbox" name="married"></input>
+              <label>Married</label>
+            </div>
+            <div>
+              <label>profile photo :</label>
+              <input style={{ marginLeft: "10px" }}
+                type="file"
+                ref={ref}
+                name="file"
+                onChange={handleChange}
+                accept="image/png image/jpg"
+              />
+            </div>
+            <input type="submit" style={{ marginRight: "440px" }} />
+          </form>
         </div>
-        <div>
-          <label>Age :</label>
-          <input
-            type="number"
-            name="age"
-            onChange={handleChange}
-            placeholder="Enter your age"
-          />
+        <div className="dataDiv">
+          <Table list={data} />
+          <button onClick={() => salarySort("asc")}>Salary Low to High</button>
+          <button onClick={() => salarySort("desc")}>Salary High to Low</button>
         </div>
-        <div>
-          <label>Address :</label>
-          <input
-            type="text"
-            name="address"
-            onChange={handleChange}
-            placeholder="Enter your address"
-          />
-        </div>
-        <div>
-          <label>Department :</label>
-          <select name="department" onChange={handleChange}>
-            <option value="">Choose an option</option>
-            <option value="devlopment">Devlopment</option>
-            <option value="testing">Testing</option>
-            <option value="devops">DevOps</option>
-            <option value="ai">Artificial intelligence</option>
-            <option value="hr">HR</option>
-          </select>
-        </div>
-        <div>
-          <label>Salary :</label>
-          <input
-            type="number"
-            name="salary"
-            onChange={handleChange}
-            placeholder="Enter your salary"
-          />
-        </div>
-        <div>
-          <label>Marital State :</label>
-          <input onChange={handleChange} type="checkbox" name="single"></input>
-          <label>Single</label>
-          <input onChange={handleChange} type="checkbox" name="married"></input>
-          <label>Married</label>
-        </div>
-        <div>
-          <label>profile photo :</label>
-          <input
-            type="file"
-            ref={ref}
-            name="profile"
-            onChange={handleChange}
-            accept="image/png image/jpg"
-          />
-        </div>
-        <input type="submit" />
-      </form>
+      </div>
 
-      <Table list={data} />
     </>
   );
 };
+

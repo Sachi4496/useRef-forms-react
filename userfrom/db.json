@@ -1,3 +1,26 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "Sachidanand Pradhan",
+      "age": "20",
+      "address": "Vill -Hensa , post :- seraikella, Village:- Hensa post - seraikella",
+      "department": "devlopment",
+      "salary": "2000",
+      "single": true,
+      "married": "",
+      "profile": "C:\\fakepath\\PicsArt_01-11-08.59.22.png",
+      "id": 1
+    },
+    {
+      "name": "Sachidanand Pradhan",
+      "age": "200",
+      "address": "Vill -Hensa , post :- seraikella, Village:- Hensa post - seraikella",
+      "department": "testing",
+      "salary": "022",
+      "single": true,
+      "married": "",
+      "file": "blob:http://localhost:3000/1aba2d95-e711-4eaf-9c17-584773e93062",
+      "id": 2
+    }
+  ]
 }
