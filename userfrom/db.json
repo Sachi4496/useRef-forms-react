@@ -2,25 +2,80 @@
   "users": [
     {
       "name": "Sachidanand Pradhan",
-      "age": "20",
+      "age": "22",
       "address": "pune",
       "department": "devlopment",
-      "salary": "50000",
+      "salary": "60000",
       "single": true,
       "married": "",
-      "file": "blob:http://localhost:3000/82dfd056-e5c7-4717-aad4-08287e7fcb40",
+      "file": "blob:http://localhost:3000/530c354e-332b-4429-b4c3-b428300675a2",
       "id": 1
     },
     {
-      "name": "Sachidanand Pradhan",
-      "age": "10",
-      "address": "Bihar",
-      "department": "devops",
-      "salary": "520",
+      "name": "Kuldeep",
+      "age": "23",
+      "address": "Jharkhand",
+      "department": "hr",
+      "salary": "90000",
       "single": true,
       "married": "",
-      "file": "blob:http://localhost:3000/cbcc02b7-3ca8-49cc-bbdb-c310341c74ec",
+      "file": "blob:http://localhost:3000/9703e14b-38b5-4787-88c2-2bec986ff0c3",
       "id": 2
+    },
+    {
+      "name": "Rohit",
+      "age": "22",
+      "address": "Jharkhand",
+      "department": "devops",
+      "salary": "30000",
+      "single": true,
+      "married": "",
+      "file": "blob:http://localhost:3000/688829ff-84ec-4541-a668-82cf0e767c3f",
+      "id": 3
+    },
+    {
+      "name": "Rao",
+      "age": "24",
+      "address": "Bangalore",
+      "department": "ai",
+      "salary": "40000",
+      "single": true,
+      "married": "",
+      "file": "blob:http://localhost:3000/43fc889c-48cf-4da2-934d-6a1e4152b8e2",
+      "id": 4
+    },
+    {
+      "name": "Sudh",
+      "age": "20",
+      "address": "Bangalore",
+      "department": "testing",
+      "salary": "40000",
+      "single": true,
+      "married": "",
+      "file": "blob:http://localhost:3000/47164226-9e0f-473e-ab10-b9ea4155e58b",
+      "id": 5
+    },
+    {
+      "name": "Vivek",
+      "age": "25",
+      "address": "Bangalore",
+      "department": "testing",
+      "salary": "40000",
+      "single": true,
+      "married": "",
+      "file": "blob:http://localhost:3000/b6b2f6c2-e83e-4776-81f5-4120354db0c8",
+      "id": 6
+    },
+    {
+      "name": "Ranveer",
+      "age": "25",
+      "address": "Bangalore",
+      "department": "testing",
+      "salary": "10000",
+      "single": true,
+      "married": "",
+      "file": "blob:http://localhost:3000/37a41520-72c1-4cda-883c-9f4ed745e93c",
+      "id": 7
     }
   ]
 }
